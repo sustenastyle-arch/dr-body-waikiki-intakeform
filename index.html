@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr.Body Waikiki | 顧客情報・健康チェック・同意・証明</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>Dr.Body Waikiki 顧客情報シート</h1>
+        <p>ご利用前に必要事項をご入力ください。重複を減らし、最後に署名と証明写真を残せる流れに整理しています。</p>
+      </header>
+
+      <form id="intakeForm" class="form-card">
+        <section>
+          <h2>1. 顧客情報</h2>
+          <div class="grid">
+            <label>
+              名
+              <input type="text" name="firstName" autocomplete="given-name" required />
+            </label>
+            <label>
+              姓
+              <input type="text" name="lastName" autocomplete="family-name" required />
+            </label>
+            <label>
+              生年月日(月/日/年)
+              <input
+                type="text"
+                name="birthDate"
+                placeholder="MM/DD/YYYY"
+                pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}"
+                title="MM/DD/YYYY の形式で入力してください"
+                autocomplete="bday"
+              />
+            </label>
+            <label>
+              電話番号
+              <input type="tel" name="phone" autocomplete="tel" required />
+            </label>
+            <label>
+              メールアドレス
+              <input type="email" name="email" autocomplete="email" />
+            </label>
+            <label>
+              職業
+              <input type="text" name="occupation" autocomplete="organization-title" />
+            </label>
+          </div>
+          <div class="grid">
+            <label>
+              ご住所(番地・通り名)
+              <input type="text" name="addressStreet" autocomplete="street-address" />
+            </label>
+            <label>
+              市区町村
+              <input type="text" name="addressCity" autocomplete="address-level2" />
+            </label>
+            <label>
+              州
+              <input type="text" name="addressState" autocomplete="address-level1" />
+            </label>
+            <label>
+              郵便番号
+              <input type="text" name="addressZip" autocomplete="postal-code" />
+            </label>
+          </div>
+          <div class="referral-block">
+            <p class="section-note">どちらでお知りになりましたか?</p>
+            <div class="checkbox-list">
+              <label><input type="checkbox" name="referralSource" value="Google Map" /> Google Map</label>
+              <label><input type="checkbox" name="referralSource" value="Google検索" /> Google検索</label>
+              <label><input type="checkbox" name="referralSource" value="Instagram/Facebook" /> Instagram/Facebook</label>
+              <label><input type="checkbox" name="referralSource" value="Yelp" /> Yelp</label>
+              <label class="inline-detail">
+                <span><input type="checkbox" name="referralSource" value="ご紹介" /> ご紹介(</span>
+                <input type="text" name="referralName" placeholder="紹介者のお名前" />
+                <span>)</span>
+              </label>
+              <label class="inline-detail">
+                <span><input type="checkbox" name="referralSource" value="その他" /> その他(</span>
+                <input type="text" name="referralOther" placeholder="内容" />
+                <span>)</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>2. 健康チェック</h2>
+          <p class="section-note">安心して施術を受けていただくため、現在の健康状態についてお伺いします。該当する項目がある場合はチェックを入れ、必要事項をご記入ください。</p>
+          <p class="section-note">
+            <strong>妊娠中・妊娠の可能性がある方、ペースメーカーをご使用の方、授乳中の方は、一部の施術（キャビテーション等）をお受けいただけません。</strong>
+            心疾患・高血圧など健康状態に不安がある方は、事前に医師へご相談ください。
+          </p>
+          <div class="symptom-grid">
+            <label class="inline-detail">
+              <span><input type="checkbox" name="symptoms" value="妊娠中・妊娠の可能性" /> 妊娠中・妊娠の可能性がある（</span>
+              <input type="text" name="pregnancyWeeks" placeholder="何週目" />
+              <span>）</span>
+            </label>
+            <p class="section-note" style="grid-column: 1 / -1;">
+              妊娠中のお客様は、<strong>安定期（目安：妊娠20週以降）</strong>で体調が安定している場合に限り施術をお受けいただけます。安全のため、事前に担当医の同意を得ていただくことをおすすめしております。妊娠週数をご記入のうえ、ご不明な点がございましたらお気軽にご相談ください。
+            </p>
+            <label><input type="checkbox" name="symptoms" value="生理中" /> 生理中</label>
+            <label><input type="checkbox" name="symptoms" value="授乳中" /> 授乳中</label>
+            <label><input type="checkbox" name="symptoms" value="発熱" /> 発熱</label>
+            <label><input type="checkbox" name="symptoms" value="高血圧" /> 高血圧</label>
+            <label><input type="checkbox" name="symptoms" value="低血圧" /> 低血圧</label>
+            <label><input type="checkbox" name="symptoms" value="心疾患" /> 心疾患</label>
+            <label><input type="checkbox" name="symptoms" value="糖尿病" /> 糖尿病</label>
+            <label><input type="checkbox" name="symptoms" value="血液凝固障害" /> 血液凝固障害</label>
+            <label><input type="checkbox" name="symptoms" value="がん治療中" /> がん治療中</label>
+            <label><input type="checkbox" name="symptoms" value="てんかん" /> てんかん</label>
+            <label><input type="checkbox" name="symptoms" value="血栓症" /> 血栓症</label>
+            <label><input type="checkbox" name="symptoms" value="静脈瘤" /> 静脈瘤</label>
+            <label><input type="checkbox" name="symptoms" value="腎疾患" /> 腎疾患</label>
+            <label><input type="checkbox" name="symptoms" value="肝疾患" /> 肝疾患</label>
+            <label><input type="checkbox" name="symptoms" value="自己免疫疾患" /> 自己免疫疾患</label>
+            <label class="inline-detail">
+              <span><input type="checkbox" name="symptoms" value="アレルギー" /> アレルギー（</span>
+              <input type="text" name="allergyDetail" placeholder="何のアレルギーか（例：花粉、食べ物、金属など）" />
+              <span>）</span>
+            </label>
+            <label><input type="checkbox" name="symptoms" value="皮膚疾患・感染症" /> 皮膚疾患・感染症</label>
+            <label><input type="checkbox" name="symptoms" value="敏感肌" /> 敏感肌</label>
+            <label><input type="checkbox" name="symptoms" value="神経症状（手足のしびれ・麻痺・神経痛・てんかんなど）" /> 神経症状（手足のしびれ・麻痺・神経痛・てんかんなど）</label>
+            <label><input type="checkbox" name="symptoms" value="骨粗鬆症" /> 骨粗鬆症</label>
+            <label><input type="checkbox" name="symptoms" value="子宮筋腫" /> 子宮筋腫</label>
+            <label><input type="checkbox" name="symptoms" value="あざができやすい" /> あざができやすい</label>
+            <label class="inline-detail">
+              <span><input type="checkbox" name="symptoms" value="ヘルニア・骨の病気" /> ヘルニア・骨の病気（</span>
+              <input type="text" name="herniaDetail" placeholder="部位・内容（例：腰椎、首など）" />
+              <span>）</span>
+            </label>
+            <label><input type="checkbox" name="symptoms" value="ペースメーカー" /> ペースメーカー</label>
+            <label><input type="checkbox" name="symptoms" value="金属インプラント" /> 金属インプラント</label>
+            <label><input type="checkbox" name="symptoms" value="歯列矯正（ブレース）" /> 歯列矯正（ブレース）</label>
+            <label><input type="checkbox" name="symptoms" value="補聴器" /> 補聴器</label>
+            <label class="inline-detail">
+              <span><input type="checkbox" name="symptoms" value="最近手術を受けた" /> 最近手術を受けた（内容・時期をご記入ください：</span>
+              <input type="text" name="recentSurgeryDetail" placeholder="内容・時期など" />
+              <span>）</span>
+            </label>
+            <label class="inline-detail">
+              <span><input type="checkbox" name="symptoms" value="美容整形・美容医療" /> 美容整形・美容医療（</span>
+              <input type="text" name="cosmeticSurgeryDetail" placeholder="内容・時期（例：糸リフト、ヒアルロン酸、ボトックス、脂肪吸引など）" />
+              <span>）</span>
+            </label>
+            <label class="inline-detail">
+              <span><input type="checkbox" name="symptoms" value="服薬中・治療中" /> 服薬中・治療中（</span>
+              <input type="text" name="medicationDetail" placeholder="内容" />
+              <span>）</span>
+            </label>
+            <label><input type="checkbox" name="symptoms" value="直近1週間以内のワクチン接種・注射" /> 直近1週間以内のワクチン接種・注射</label>
+            <label class="inline-detail">
+              <span><input type="checkbox" name="symptoms" value="その他の疾患" /> その他の疾患（</span>
+              <input type="text" name="otherHealthDetail" placeholder="内容" />
+              <span>）</span>
+            </label>
+          </div>
+          <p class="section-note">※生理中でも施術は可能ですが、体調により内容を変更する場合があります。</p>
+          <label>
+            その他、施術時に気を付けることがある場合はこちらにご記入ください
+            <textarea name="healthDetails" rows="4" placeholder="例：症状の詳細、時期、程度など"></textarea>
+          </label>
+          <div class="pressure-block">
+            <p class="section-note">希望の圧力</p>
+            <div class="checkbox-list pressure-options">
+              <label><input type="radio" name="pressurePreference" value="ソフト" /> ソフト</label>
+              <label><input type="radio" name="pressurePreference" value="ふつう" /> ふつう</label>
+              <label><input type="radio" name="pressurePreference" value="しっかり" /> しっかり</label>
+              <label><input type="radio" name="pressurePreference" value="セラピストにお任せ" /> セラピストにお任せ</label>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>3. お顔の悩み</h2>
+          <div class="symptom-grid">
+            <label><input type="checkbox" name="facialConcerns" value="むくみ" /> むくみ</label>
+            <label><input type="checkbox" name="facialConcerns" value="二重あご・フェイスライン" /> 二重あご・フェイスライン</label>
+            <label><input type="checkbox" name="facialConcerns" value="顎関節症" /> 顎関節症</label>
+            <label><input type="checkbox" name="facialConcerns" value="お顔のたるみ" /> お顔のたるみ</label>
+            <label><input type="checkbox" name="facialConcerns" value="乾燥・敏感肌" /> 乾燥・敏感肌</label>
+            <label><input type="checkbox" name="facialConcerns" value="毛穴・ニキビ" /> 毛穴・ニキビ</label>
+            <label><input type="checkbox" name="facialConcerns" value="シミ・くすみ" /> シミ・くすみ</label>
+            <label><input type="checkbox" name="facialConcerns" value="左右差" /> 左右差</label>
+            <label><input type="checkbox" name="facialConcerns" value="エラ張り" /> エラ張り</label>
+            <label><input type="checkbox" name="facialConcerns" value="食いしばり" /> 食いしばり</label>
+            <label class="inline-detail">
+              <span><input type="checkbox" name="facialConcerns" value="その他" /> その他(</span>
+              <input type="text" name="facialConcernOther" placeholder="内容" />
+              <span>)</span>
+            </label>
+          </div>
+        </section>
+
+        <section>
+          <h2>4. ボディの悩み</h2>
+          <div class="symptom-grid">
+            <label><input type="checkbox" name="bodyConcerns" value="肩の痛み" /> 肩の痛み</label>
+            <label><input type="checkbox" name="bodyConcerns" value="首の痛み" /> 首の痛み</label>
+            <label><input type="checkbox" name="bodyConcerns" value="腰痛" /> 腰痛</label>
+            <label><input type="checkbox" name="bodyConcerns" value="脚のむくみ" /> 脚のむくみ</label>
+            <label><input type="checkbox" name="bodyConcerns" value="血行不良" /> 血行不良</label>
+            <label><input type="checkbox" name="bodyConcerns" value="股関節の痛み" /> 股関節の痛み</label>
+            <label><input type="checkbox" name="bodyConcerns" value="姿勢" /> 姿勢</label>
+            <label><input type="checkbox" name="bodyConcerns" value="骨盤の歪み" /> 骨盤の歪み</label>
+            <label><input type="checkbox" name="bodyConcerns" value="お腹周りの脂肪" /> お腹周りの脂肪</label>
+            <label><input type="checkbox" name="bodyConcerns" value="二の腕のたるみ" /> 二の腕のたるみ</label>
+            <label><input type="checkbox" name="bodyConcerns" value="太もも・脚の脂肪・セルライト" /> 太もも・脚の脂肪・セルライト</label>
+            <label><input type="checkbox" name="bodyConcerns" value="猫背" /> 猫背</label>
+            <label><input type="checkbox" name="bodyConcerns" value="巻き肩" /> 巻き肩</label>
+            <label><input type="checkbox" name="bodyConcerns" value="ストレートネック" /> ストレートネック</label>
+            <label class="inline-detail">
+              <span><input type="checkbox" name="bodyConcerns" value="その他" /> その他(</span>
+              <input type="text" name="bodyConcernOther" placeholder="内容" />
+              <span>)</span>
+            </label>
+          </div>
+          <div class="referral-block">
+            <p class="section-note">これまでにマッサージや整体、美容施術を受けたことがありますか?</p>
+            <div class="checkbox-list">
+              <label><input type="radio" name="massageHistory" value="初めて" /> 初めて</label>
+              <label class="inline-detail">
+                <span><input type="radio" name="massageHistory" value="ある" /> ある（最後に受けた時期：</span>
+                <input type="text" name="lastMassage" placeholder="例：3ヶ月前、2026/01/15 など" />
+                <span>）</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>5. 本日のご要望</h2>
+          <div class="symptom-grid">
+            <p class="section-note" style="grid-column: 1 / -1;">施術希望部位（複数選択可）</p>
+            <label><input type="checkbox" name="desiredAreas" value="顔" /> 顔</label>
+            <label><input type="checkbox" name="desiredAreas" value="首" /> 首</label>
+            <label><input type="checkbox" name="desiredAreas" value="肩" /> 肩</label>
+            <label><input type="checkbox" name="desiredAreas" value="背中" /> 背中</label>
+            <label><input type="checkbox" name="desiredAreas" value="腰" /> 腰</label>
+            <label><input type="checkbox" name="desiredAreas" value="お腹" /> お腹</label>
+            <label><input type="checkbox" name="desiredAreas" value="腕" /> 腕</label>
+            <label><input type="checkbox" name="desiredAreas" value="太もも" /> 太もも</label>
+            <label><input type="checkbox" name="desiredAreas" value="ふくらはぎ" /> ふくらはぎ</label>
+          </div>
+          <div class="pressure-block">
+            <p class="section-note">本日の体調</p>
+            <div class="checkbox-list pressure-options">
+              <label><input type="radio" name="todayCondition" value="とても良い" /> とても良い</label>
+              <label><input type="radio" name="todayCondition" value="普通" /> 普通</label>
+              <label><input type="radio" name="todayCondition" value="少し疲れている" /> 少し疲れている</label>
+              <label><input type="radio" name="todayCondition" value="あまり良くない" /> あまり良くない</label>
+            </div>
+          </div>
+          <div class="symptom-grid">
+            <p class="section-note" style="grid-column: 1 / -1;">本日の目的（複数選択可）</p>
+            <label><input type="checkbox" name="todayGoals" value="リラックスしたい" /> リラックスしたい</label>
+            <label><input type="checkbox" name="todayGoals" value="痛みを和らげたい" /> 痛みを和らげたい</label>
+            <label><input type="checkbox" name="todayGoals" value="むくみ改善" /> むくみ改善</label>
+            <label><input type="checkbox" name="todayGoals" value="ボディラインを整えたい" /> ボディラインを整えたい</label>
+            <label><input type="checkbox" name="todayGoals" value="姿勢改善" /> 姿勢改善</label>
+            <label><input type="checkbox" name="todayGoals" value="小顔ケア" /> 小顔ケア</label>
+          </div>
+        </section>
+
+        <section>
+          <h2>6. 同意・証明</h2>
+          <div class="disclaimer">
+            <h3>免責事項</h3>
+            <p>
+              施術中に不快感や気になる点があれば、直ちにセラピストにお伝えください。本フォームの内容をもとに安全に施術を行いますが、施術には予期しない反応や個人差が生じる可能性があることをご理解ください。Dr.Body Waikikiの施術は医療行為ではありません。本フォームはスパ業界で一般的に用いられる評価ツールであり、施術可否の判断材料として使用するものです。ご提供いただいた情報を第三者と共有することはありません。
+            </p>
+            <h3>宣誓事項</h3>
+            <p>
+              私は自身が把握している症状をすべて申告しており、その内容が真実かつ正確であることを表明します。上記内容に変化があった場合は、直ちにセラピストに報告することに同意します。この情報はDr.Body Waikikiにより機密として保管され、Dr.Body Waikikiでの施術に関連する目的にのみ使用されることを了承します。Dr.Body Waikikiは医療機関ではなく、診断・治療・投薬等の医療行為は行いません。健康状態に不安がある場合は、施術前に医師へご相談ください。
+            </p>
+          </div>
+          <div class="disclaimer">
+            <h3>施術に関する注意事項（キャビテーション・テルマエントラスト・LED&amp;マイクロカレントヘアブラシ）</h3>
+            <p>
+              本施術は、体型やお肌の気になる部分へアプローチする美容目的の施術であり、医学的なダイエット効果やアンチエイジング効果を保証するものではありません。効果には個人差があります。「2. 健康チェック」に該当する項目がある場合、安全のため施術をお断り（キャンセル）させていただく場合があります。
+            </p>
+            <ul>
+              <li>直近1週間以内にワクチン接種・注射を受けた方は施術できません。また施術後1週間はワクチン接種・注射をお控えください。</li>
+              <li>最近3週間以内に手術を受けた方は施術をお受けいただけません。3週間以上経過している場合でも、傷口が治癒していない場合や体調に不安がある場合は、事前に医師へご相談ください。</li>
+              <li>服薬中の方は、施術前に医師にご相談ください。</li>
+              <li>キャビテーション施術中、本人様のみキーンという音が耳の奥から聞こえます。個人差はありますが、不快に感じられた場合はすぐにお知らせください。</li>
+              <li>ラジオ波の施術中、急に熱さを感じることがあります。痛みや熱さを感じた場合はすぐにお知らせください。</li>
+              <li>LED&amp;マイクロカレントヘアブラシ施術中、ちくちくした痛みを感じることがあります。痛みが強すぎる場合はすぐにお知らせください。</li>
+              <li>副作用はまれですが、施術部位に一時的な赤み・かゆみ・乾燥が起こる場合があります。保湿や冷却で症状を和らげてください。</li>
+              <li>施術前に貴金属類は全て外してください。紛失物について当店は責任を負いません。</li>
+              <li>施術後24時間以内に肌トラブルが起きた場合は、すぐにご連絡ください。</li>
+            </ul>
+            <p>
+              施術内容、期待される効果および想定されるリスクについて十分な説明を受け、理解した上で施術を受けることに同意します。
+            </p>
+          </div>
+          <div class="disclaimer">
+            <h3>施術後の過ごし方（アフターケア）</h3>
+            <ul>
+              <li>施術後は水分（常温水がおすすめ）をいつもより多めに摂ってください。老廃物の排出を助けます。</li>
+              <li>施術当日〜翌日は、軽いウォーキングなど体を動かす習慣がおすすめです。</li>
+              <li>施術当日の飲酒・カフェインの摂り過ぎはお控えください。</li>
+              <li>脂っこい食事・糖質・塩分の摂り過ぎは控えめにしてください。</li>
+              <li>施術当日の長時間の入浴・サウナ・激しい運動は避けてください。</li>
+              <li>より良いコンディションを維持するため、施術は継続的に受けていただくことをおすすめします（目安：1〜2週間に1回程度）。</li>
+            </ul>
+          </div>
+          <div class="disclaimer">
+            <h3>個人情報の取り扱いについて</h3>
+            <p>
+              ご提供いただいた個人情報および健康に関する情報は、施術を安全に提供するための確認・カウンセリング・施術記録の管理を目的として使用いたします。
+            </p>
+            <p>
+              お客様の個人情報は適切に管理し、お客様の同意なく第三者へ提供することはありません。ただし、法律により開示が必要な場合を除きます。
+            </p>
+            <p>
+              内容をご確認いただき、記載された情報が正確であることを確認したうえで、以下に署名（電子署名）をお願いいたします。
+            </p>
+          </div>
+          <div class="checkbox-list">
+            <label><input type="checkbox" name="consentSafety" value="同意" /> 機器の安全な使用方法および注意事項を理解し、遵守します。</label>
+            <label><input type="checkbox" name="consentRisk" value="同意" /> 施術中に不快感、痛み、異常を感じた場合は、直ちにスタッフへ知らせます。</label>
+            <label><input type="checkbox" name="consentData" value="同意" /> 本フォームに記載した健康情報は正確であり、安全な施術提供のために必要な情報を提供しています。</label>
+            <label><input type="checkbox" name="consentDisclaimer" value="同意" /> 上記の免責事項・宣誓事項を確認し、内容に同意します。</label>
+          </div>
+          <h3>施術同意</h3>
+          <div class="checkbox-list">
+            <label><input type="checkbox" name="consentTreatment" value="同意" /> 私は、本フォームに記載された施術内容、期待される効果、注意事項および施術に伴う可能性のあるリスクについて確認し、理解したうえで、自らの意思で施術を受けることに同意します。</label>
+            <label><input type="checkbox" name="consentMedical" value="同意" /> 私は、Dr.Body Waikikiが医療機関ではなく、診断・治療等の医療行為を行わないことを理解しています。また、施術の効果には個人差があり、特定の結果が保証されるものではないことを了承します。</label>
+          </div>
+          <div class="checkbox-list">
+            <label><input type="checkbox" name="consentPrivacy" value="同意" /> 個人情報の取り扱いについて理解し、同意します。</label>
+          </div>
+          <label>
+            署名（Signature）
+            <input type="text" name="signature" placeholder="署名欄" required />
+          </label>
+          <label>
+            日付（Date）(月/日/年)
+            <input
+              type="text"
+              name="signatureDate"
+              placeholder="MM/DD/YYYY"
+              pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}"
+              title="MM/DD/YYYY の形式で入力してください"
+            />
+          </label>
+        </section>
+
+        <div class="actions">
+          <button type="submit">入力内容を送信</button>
+          <button type="reset" class="secondary">クリア</button>
+        </div>
+      </form>
+
+      <section id="result" class="result-card" aria-live="polite"></section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
