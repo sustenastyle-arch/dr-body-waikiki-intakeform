@@ -93,8 +93,13 @@ form.addEventListener('submit', (event) => {
   data.consentMedical = form.elements.consentMedical.checked;
   data.consentPrivacy = form.elements.consentPrivacy.checked;
 
-  if (!data.firstName || !data.lastName || !data.phone || !data.signature) {
-    result.textContent = '必須項目（名、姓、電話番号、署名）を入力してください。';
+  if (!data.firstName || !data.lastName || !data.birthDate || !data.phone || !data.email || !data.signature) {
+    result.textContent = '必須項目（名、姓、生年月日、電話番号、メールアドレス、署名）を入力してください。';
+    return;
+  }
+
+  if (!data.referralSource.length) {
+    result.textContent = '「どちらでお知りになりましたか?」を選択してください。';
     return;
   }
 
