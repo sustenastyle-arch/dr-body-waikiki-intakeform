@@ -26,6 +26,7 @@ function buildSummary(data) {
 
 【同意】
 注意事項への同意: ${data.consentAgree ? '同意' : '未同意'}
+施術内容・リスクの説明への同意: ${data.consentExplained ? '同意' : '未同意'}
 
 署名: ${data.signature || '未記入'}
 日付: ${data.consentDate || '未記入'}
@@ -44,8 +45,8 @@ form.addEventListener('submit', (event) => {
     return;
   }
 
-  if (!data.consentAgree) {
-    result.textContent = '注意事項への同意チェックを入れてください。';
+  if (!data.consentAgree || !data.consentExplained) {
+    result.textContent = 'すべての同意チェック項目にチェックを入れてください。';
     return;
   }
 
