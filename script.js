@@ -145,6 +145,7 @@ form.addEventListener('submit', (event) => {
 
   form.hidden = true;
   document.getElementById('microneedlingLinkBox').hidden = false;
+  document.getElementById('hifuLinkBox').hidden = false;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
