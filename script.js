@@ -135,6 +135,8 @@ form.addEventListener('submit', (event) => {
   link.style.display = 'inline-block';
   link.style.marginTop = '12px';
   result.appendChild(link);
+
+  document.getElementById('microneedlingLinkBox').hidden = false;
 });
 
 const savedData = localStorage.getItem('customer-intake-data');
