@@ -75,7 +75,14 @@ form.addEventListener('submit', (event) => {
   }
 
   const summary = buildSummary(data);
-  result.textContent = summary;
+
+  const heading = document.createElement('h2');
+  heading.textContent = '✓ ご入力内容を受け付けました';
+  result.replaceChildren(heading);
+
+  const summaryText = document.createElement('pre');
+  summaryText.textContent = summary;
+  result.appendChild(summaryText);
 
   const timestamp = new Date().toISOString();
   localStorage.setItem('microneedling-consent-data', JSON.stringify(data));
@@ -88,6 +95,9 @@ form.addEventListener('submit', (event) => {
   link.style.display = 'inline-block';
   link.style.marginTop = '12px';
   result.appendChild(link);
+
+  form.hidden = true;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 const savedData = localStorage.getItem('microneedling-consent-data');
