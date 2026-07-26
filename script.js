@@ -15,14 +15,6 @@ function formatDateInput(event) {
 form.elements.birthDate.addEventListener('input', formatDateInput);
 form.elements.signatureDate.addEventListener('input', formatDateInput);
 
-const wantsMicroneedling = document.getElementById('wantsMicroneedling');
-const microneedlingTopNote = document.getElementById('microneedlingTopNote');
-const microneedlingLinkBox = document.getElementById('microneedlingLinkBox');
-wantsMicroneedling.addEventListener('change', (event) => {
-  microneedlingTopNote.hidden = !event.target.checked;
-  microneedlingLinkBox.hidden = !event.target.checked;
-});
-
 function buildSummary(data) {
   const consentItems = [
     data.consentSafety ? '安全手順への同意' : '安全手順への同意なし',
@@ -74,7 +66,6 @@ function buildSummary(data) {
 施術希望部位: ${data.desiredAreas && data.desiredAreas.length ? data.desiredAreas.join('、') : 'なし'}
 本日の体調: ${data.todayCondition || '未選択'}
 本日の目的: ${data.todayGoals && data.todayGoals.length ? data.todayGoals.join('、') : 'なし'}
-マイクロチャネリング希望: ${data.wantsMicroneedling ? 'はい（別途同意書が必要）' : 'いいえ'}
 
 【同意・証明】
 同意内容: ${consentItems.join(' / ')}
@@ -227,10 +218,6 @@ if (savedData) {
   form.querySelectorAll('input[name="todayGoals"]').forEach((checkbox) => {
     checkbox.checked = savedTodayGoals.includes(checkbox.value);
   });
-
-  wantsMicroneedling.checked = Boolean(parsed.wantsMicroneedling);
-  microneedlingTopNote.hidden = !wantsMicroneedling.checked;
-  microneedlingLinkBox.hidden = !wantsMicroneedling.checked;
 
   form.elements.consentSafety.checked = parsed.consentSafety || false;
   form.elements.consentRisk.checked = parsed.consentRisk || false;
