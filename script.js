@@ -1,6 +1,20 @@
 const form = document.getElementById('intakeForm');
 const result = document.getElementById('result');
 
+function formatDateInput(event) {
+  const digits = event.target.value.replace(/\D/g, '').slice(0, 8);
+  let formatted = digits;
+  if (digits.length > 4) {
+    formatted = `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+  } else if (digits.length > 2) {
+    formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
+  }
+  event.target.value = formatted;
+}
+
+form.elements.birthDate.addEventListener('input', formatDateInput);
+form.elements.signatureDate.addEventListener('input', formatDateInput);
+
 function buildSummary(data) {
   const consentItems = [
     data.consentSafety ? '安全手順への同意' : '安全手順への同意なし',
