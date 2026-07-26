@@ -84,6 +84,24 @@ form.addEventListener('submit', (event) => {
     return;
   }
 
+  if (
+    !data.consentSafety ||
+    !data.consentRisk ||
+    !data.consentData ||
+    !data.consentDisclaimer ||
+    !data.consentTreatment ||
+    !data.consentMedical ||
+    !data.consentPrivacy
+  ) {
+    result.textContent = 'すべての同意チェック項目にチェックを入れてください。';
+    return;
+  }
+
+  if (!data.signatureDate) {
+    result.textContent = '署名した日にちを入力してください。';
+    return;
+  }
+
   const summary = buildSummary(data);
   result.textContent = summary;
 

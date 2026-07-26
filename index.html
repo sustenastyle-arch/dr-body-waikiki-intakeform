@@ -332,18 +332,18 @@
             </p>
           </div>
           <div class="checkbox-list">
-            <label><input type="checkbox" name="consentSafety" value="同意" /> 機器の安全な使用方法および注意事項を理解し、遵守します。</label>
-            <label><input type="checkbox" name="consentRisk" value="同意" /> 施術中に不快感、痛み、異常を感じた場合は、直ちにスタッフへ知らせます。</label>
-            <label><input type="checkbox" name="consentData" value="同意" /> 本フォームに記載した健康情報は正確であり、安全な施術提供のために必要な情報を提供しています。</label>
-            <label><input type="checkbox" name="consentDisclaimer" value="同意" /> 上記の免責事項・宣誓事項を確認し、内容に同意します。</label>
+            <label><input type="checkbox" name="consentSafety" value="同意" required /> 機器の安全な使用方法および注意事項を理解し、遵守します。</label>
+            <label><input type="checkbox" name="consentRisk" value="同意" required /> 施術中に不快感、痛み、異常を感じた場合は、直ちにスタッフへ知らせます。</label>
+            <label><input type="checkbox" name="consentData" value="同意" required /> 本フォームに記載した健康情報は正確であり、安全な施術提供のために必要な情報を提供しています。</label>
+            <label><input type="checkbox" name="consentDisclaimer" value="同意" required /> 上記の免責事項・宣誓事項を確認し、内容に同意します。</label>
           </div>
           <h3>施術同意</h3>
           <div class="checkbox-list">
-            <label><input type="checkbox" name="consentTreatment" value="同意" /> 私は、本フォームに記載された施術内容、期待される効果、注意事項および施術に伴う可能性のあるリスクについて確認し、理解したうえで、自らの意思で施術を受けることに同意します。</label>
-            <label><input type="checkbox" name="consentMedical" value="同意" /> 私は、Dr.Body Waikikiが医療機関ではなく、診断・治療等の医療行為を行わないことを理解しています。また、施術の効果には個人差があり、特定の結果が保証されるものではないことを了承します。</label>
+            <label><input type="checkbox" name="consentTreatment" value="同意" required /> 私は、本フォームに記載された施術内容、期待される効果、注意事項および施術に伴う可能性のあるリスクについて確認し、理解したうえで、自らの意思で施術を受けることに同意します。</label>
+            <label><input type="checkbox" name="consentMedical" value="同意" required /> 私は、Dr.Body Waikikiが医療機関ではなく、診断・治療等の医療行為を行わないことを理解しています。また、施術の効果には個人差があり、特定の結果が保証されるものではないことを了承します。</label>
           </div>
           <div class="checkbox-list">
-            <label><input type="checkbox" name="consentPrivacy" value="同意" /> 個人情報の取り扱いについて理解し、同意します。</label>
+            <label><input type="checkbox" name="consentPrivacy" value="同意" required /> 個人情報の取り扱いについて理解し、同意します。</label>
           </div>
           <label>
             署名（Signature）
@@ -357,6 +357,7 @@
               placeholder="MM/DD/YYYY"
               pattern="(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}"
               title="MM/DD/YYYY の形式で入力してください"
+              required
             />
           </label>
         </section>
