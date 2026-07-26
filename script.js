@@ -16,8 +16,10 @@ form.elements.birthDate.addEventListener('input', formatDateInput);
 form.elements.signatureDate.addEventListener('input', formatDateInput);
 
 const wantsMicroneedling = document.getElementById('wantsMicroneedling');
+const microneedlingTopNote = document.getElementById('microneedlingTopNote');
 const microneedlingLinkBox = document.getElementById('microneedlingLinkBox');
 wantsMicroneedling.addEventListener('change', (event) => {
+  microneedlingTopNote.hidden = !event.target.checked;
   microneedlingLinkBox.hidden = !event.target.checked;
 });
 
@@ -227,6 +229,7 @@ if (savedData) {
   });
 
   wantsMicroneedling.checked = Boolean(parsed.wantsMicroneedling);
+  microneedlingTopNote.hidden = !wantsMicroneedling.checked;
   microneedlingLinkBox.hidden = !wantsMicroneedling.checked;
 
   form.elements.consentSafety.checked = parsed.consentSafety || false;
